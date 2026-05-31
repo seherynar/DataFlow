@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Aktarım Geçmişi - DataFlow{% endblock %}
+{% block content %}
+<h1>Aktarım Geçmişi</h1>
+<table class="table table-bordered table-striped"><thead><tr><th>ID</th><th>Dosya</th><th>Toplam</th><th>Temiz</th><th>Hatalı</th><th>Aktarıldı mı?</th><th>Rollback</th><th>Tarih</th><th>İşlem</th></tr></thead><tbody>
+{% for batch in batches %}<tr><td>{{ batch.id }}</td><td>{{ batch.uploaded_file.original_filename }}</td><td>{{ batch.total_records }}</td><td>{{ batch.clean_records }}</td><td>{{ batch.error_records }}</td><td>{{ "Evet" if batch.imported else "Hayır" }}</td><td>{{ "Evet" if batch.rolled_back else "Hayır" }}</td><td>{{ batch.created_at.strftime("%Y-%m-%d %H:%M") }}</td><td><a class="btn btn-sm btn-outline-primary" href="/preview/{{ batch.id }}">Önizle</a>{% if batch.imported and not batch.rolled_back %}<form action="/rollback/{{ batch.id }}" method="POST" class="d-inline"><button class="btn btn-sm btn-outline-danger" type="submit">Geri Al</button></form>{% endif %}</td></tr>{% endfor %}
+</tbody></table>
+{% endblock %}

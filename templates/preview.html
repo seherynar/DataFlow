@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Veri Önizleme - DataFlow{% endblock %}
+{% block content %}
+<h1>Veri Önizleme</h1>
+<div class="alert alert-info"><strong>Yüklenen dosya:</strong> {{ batch.uploaded_file.original_filename }}</div>
+<div class="row g-3 mb-4">
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Toplam</h6><h2>{{ batch.total_records }}</h2></div></div></div>
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Temiz</h6><h2>{{ batch.clean_records }}</h2></div></div></div>
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Hatalı Satır</h6><h2>{{ batch.error_records }}</h2></div></div></div>
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Tekrarlı Hata</h6><h2>{{ batch.duplicate_records }}</h2></div></div></div>
+</div>
+<h2>İlk 10 Kayıt</h2><div class="table-responsive">{{ table_html | safe }}</div>
+<h2 class="mt-4">Doğrulama Hataları</h2>
+{% if errors %}
+<div class="alert alert-warning">Bu dosyada {{ errors|length }} doğrulama hatası bulundu.</div>
+<ul class="list-group">{% for error in errors[:10] %}<li class="list-group-item"><strong>Satır {{ error.row_number }}</strong> - {{ error.message }} <span class="text-muted">({{ error.field_name }})</span></li>{% endfor %}</ul>
+<a class="btn btn-outline-danger mt-3" href="/errors/{{ batch.id }}">Tüm Hataları Gör</a>
+<a class="btn btn-outline-secondary mt-3" href="/export-errors/{{ batch.id }}">Hataları CSV İndir</a>
+{% else %}<div class="alert alert-success">Hata bulunamadı.</div>{% endif %}
+<form action="/import/{{ batch.id }}" method="POST" class="mt-4"><button class="btn btn-success" type="submit" {% if batch.clean_records == 0 %}disabled{% endif %}>Temiz Kayıtları Veritabanına Aktar</button></form>
+{% endblock %}

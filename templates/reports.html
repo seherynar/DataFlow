@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Raporlama - DataFlow{% endblock %}
+{% block content %}
+<h1>Raporlama</h1>
+<div class="row g-4"><div class="col-md-5"><div class="card"><div class="card-body"><h5>En Çok Görülen Hata Türleri</h5>
+{% if error_counts %}<table class="table table-sm"><thead><tr><th>Hata Türü</th><th>Adet</th></tr></thead><tbody>{% for item in error_counts %}<tr><td>{{ item.error_type }}</td><td>{{ item.count }}</td></tr>{% endfor %}</tbody></table>{% else %}<p class="text-muted">Henüz hata kaydı yok.</p>{% endif %}
+</div></div></div><div class="col-md-7"><div class="card"><div class="card-body"><h5>Dosya Bazlı Kalite Skoru</h5>
+{% if quality_scores %}<table class="table table-sm"><thead><tr><th>Dosya</th><th>Toplam</th><th>Temiz</th><th>Hatalı</th><th>Skor</th></tr></thead><tbody>{% for item in quality_scores %}<tr><td>{{ item.file_name }}</td><td>{{ item.total_records }}</td><td>{{ item.clean_records }}</td><td>{{ item.error_records }}</td><td>%{{ item.quality_score }}</td></tr>{% endfor %}</tbody></table>{% else %}<p class="text-muted">Henüz raporlanacak dosya yok.</p>{% endif %}
+</div></div></div></div>
+{% endblock %}

@@ -1,0 +1,5 @@
+body { background: #f6f7fb; }
+.card { border: none; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.stat-card h6 { color: #6c757d; font-weight: 600; }
+.stat-card h2 { margin: 0; font-weight: 700; }
+.table { background: white; }

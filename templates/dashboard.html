@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - DataFlow{% endblock %}
+{% block content %}
+<h1 class="mb-3">Dashboard</h1>
+<p class="text-muted">CSV / Excel veri doğrulama ve aktarım sistemi</p>
+<div class="row g-3 mb-4">
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Toplam Dosya</h6><h2>{{ stats.total_files }}</h2></div></div></div>
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Toplam Aktarım</h6><h2>{{ stats.total_batches }}</h2></div></div></div>
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Başarılı Kayıt</h6><h2>{{ stats.total_success }}</h2></div></div></div>
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Hatalı Kayıt</h6><h2>{{ stats.total_errors }}</h2></div></div></div>
+</div>
+<div class="card mb-4"><div class="card-body"><h5>Veri Kalite Skoru</h5><div class="display-5">%{{ stats.quality_score }}</div><p class="text-muted">Son işlem: {{ stats.last_import_date }}</p></div></div>
+<h3>Son Dosyalar</h3>
+{% if quality_scores %}
+<table class="table table-bordered table-striped"><thead><tr><th>Dosya</th><th>Toplam</th><th>Temiz</th><th>Hatalı</th><th>Skor</th></tr></thead><tbody>
+{% for item in quality_scores %}<tr><td>{{ item.file_name }}</td><td>{{ item.total_records }}</td><td>{{ item.clean_records }}</td><td>{{ item.error_records }}</td><td>%{{ item.quality_score }}</td></tr>{% endfor %}
+</tbody></table>
+{% else %}<p class="text-muted">Henüz dosya yüklenmedi.</p>{% endif %}
+<a href="/upload" class="btn btn-primary mt-3">Yeni Dosya Yükle</a>
+{% endblock %}

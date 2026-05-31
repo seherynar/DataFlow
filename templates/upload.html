@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Dosya Yükle - DataFlow{% endblock %}
+{% block content %}
+<h1>Dosya Yükle</h1>
+<p class="text-muted">CSV veya Excel dosyanı buradan sisteme yükleyebilirsin.</p>
+{% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+<div class="card"><div class="card-body">
+<form action="/upload" method="POST" enctype="multipart/form-data">
+    <label class="form-label">Dosya seç</label>
+    <input class="form-control" type="file" name="data_file" accept=".csv,.xlsx,.xls" required>
+    <button class="btn btn-primary mt-3" type="submit">Yükle ve Analiz Et</button>
+</form>
+</div></div>
+{% endblock %}

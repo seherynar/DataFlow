@@ -1,0 +1,9 @@
+﻿customer_id,name,email,phone,signup_date,total_spent
+C001,Ali Yılmaz,ali@example.com,05551234567,2024-01-15,1250.50
+C002,Ayşe Demir,ayse@example.com,05559876543,2024-02-10,800
+C003,Mehmet Kaya,mehmet.example.com,05550001122,2024-03-01,300
+C004,Zeynep Şahin,zeynep@example.com,,2024-04-22,450
+C005,Can Arslan,can@example.com,123,2024-05-13,900
+C006,Elif Aydın,elif@example.com,05557778899,13-05-2024,100
+C007,Mert Koç,mert@example.com,05556667788,2024-06-08,-50
+C001,Ali Yılmaz,ali@example.com,05551234567,2024-01-15,1250.50
