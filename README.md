@@ -15,26 +15,17 @@ Doğrulama sonucunda kayıtlar ikiye ayrılır:
 
 Temiz kayıtlar veritabanına aktarılabilir. Hatalı kayıtlar ise ayrı bir ekranda satır numarası, hata türü ve açıklamasıyla birlikte gösterilir.
 
-## Özellikler
+## Ekran Görüntüleri
 
-- Web tabanlı yönetim paneli
-- CSV ve Excel dosyası yükleme
-- Veri önizleme ekranı
-- Zorunlu kolon kontrolü
-- Boş alan kontrolü
-- E-posta format kontrolü
-- Telefon format kontrolü
-- Tarih format kontrolü
-- Sayısal değer kontrolü
-- Negatif değer kontrolü
-- Tekrarlı kayıt kontrolü
-- Temiz ve hatalı kayıt ayrımı
-- Temiz kayıtları veritabanına aktarma
-- Hatalı kayıtları CSV olarak dışa aktarma
-- Aktarım geçmişi
-- Audit log kayıtları
-- Rollback ile aktarımı geri alma
-- Dashboard ve raporlama ekranı
+### Veri Önizleme
+[Veri Önizleme](veri_onizleme.jpg)
+
+### Veri Doğrulama Hataları
+[Veri Doğrulama Hataları](hatalar.jpg)
+
+### Hata Raporu 
+[Hata Raporları](raporlama.jpg)
+
 
 ## Kullanılan Teknolojiler
 
@@ -46,6 +37,7 @@ Temiz kayıtlar veritabanına aktarılabilir. Hatalı kayıtlar ise ayrı bir ek
 - HTML
 - CSS
 - Bootstrap
+
 
 ## Proje Yapısı
 
