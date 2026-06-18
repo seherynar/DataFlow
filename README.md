@@ -15,16 +15,38 @@ Doğrulama sonucunda kayıtlar ikiye ayrılır:
 
 Temiz kayıtlar veritabanına aktarılabilir. Hatalı kayıtlar ise ayrı bir ekranda satır numarası, hata türü ve açıklamasıyla birlikte gösterilir.
 
+
+
 ## Ekran Görüntüleri
 
 ### Veri Önizleme
-[Veri Önizleme](veri_onizleme.jpg)
+[Veri Önizleme](screenshots/veri_onizleme.jpg)
 
 ### Veri Doğrulama Hataları
-[Veri Doğrulama Hataları](hatalar.jpg)
+[Veri Doğrulama Hataları](screenshots/hatalar.jpg)
 
 ### Hata Raporu 
-[Hata Raporları](raporlama.jpg)
+[Hata Raporları](screenshots.raporlama.jpg)
+
+
+## Kurulum ve Çalıştırma
+
+Projeyi bilgisayarınıza klonlayın:
+-git clone https://github.com/seherynar/DataFlow.git
+-cd DataFlow
+
+### Sanal ortam oluşturun:
+-python -m venv venv
+-venv\Scripts\activate
+
+### Gerekli paketleri yükleyin:
+-pip install -r requirements.txt
+
+### Uygulamayı çalıştırın:
+-python app.py
+
+### Tarayıcıdan açın:
+-http://127.0.0.1:5050
 
 
 ## Kullanılan Teknolojiler
